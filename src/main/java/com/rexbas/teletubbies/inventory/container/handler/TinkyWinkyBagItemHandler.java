@@ -73,37 +73,37 @@ public class TinkyWinkyBagItemHandler extends ItemStackHandler {
 	}
 	
 	private void shuffleItems(List<ItemStack> stacks, int size, RandomSource rand) {
-		List<ItemStack> list = Lists.newArrayList();
-		Iterator<ItemStack> iterator = stacks.iterator();
-
-		while (iterator.hasNext()) {
-			ItemStack itemstack = iterator.next();
-			if (itemstack.isEmpty()) {
-				iterator.remove();
-			} else if (itemstack.getCount() > 1) {
-				list.add(itemstack);
-				iterator.remove();
-			}
-		}
-
-		while (size - stacks.size() - list.size() > 0 && !list.isEmpty()) {
-			ItemStack itemstack2 = list.remove(Mth.nextInt(rand, 0, list.size() - 1));
-			int i = Mth.nextInt(rand, 1, itemstack2.getCount() / 2);
-			ItemStack itemstack1 = itemstack2.split(i);
-			if (itemstack2.getCount() > 1 && rand.nextBoolean()) {
-				list.add(itemstack2);
-			} else {
-				stacks.add(itemstack2);
-			}
-
-			if (itemstack1.getCount() > 1 && rand.nextBoolean()) {
-				list.add(itemstack1);
-			} else {
-				stacks.add(itemstack1);
-			}
-		}
-
-		stacks.addAll(list);
-		Collections.shuffle(stacks);
+//		List<ItemStack> list = Lists.newArrayList();
+//		Iterator<ItemStack> iterator = stacks.iterator();
+//
+//		while (iterator.hasNext()) {
+//			ItemStack itemstack = iterator.next();
+//			if (itemstack.isEmpty()) {
+//				iterator.remove();
+//			} else if (itemstack.getCount() > 1) {
+//				list.add(itemstack);
+//				iterator.remove();
+//			}
+//		}
+//
+//		while (size - stacks.size() - list.size() > 0 && !list.isEmpty()) {
+//			ItemStack itemstack2 = list.remove(Mth.nextInt(rand, 0, list.size() - 1));
+//			int i = Mth.nextInt(rand, 1, itemstack2.getCount() / 2);
+//			ItemStack itemstack1 = itemstack2.split(i);
+//			if (itemstack2.getCount() > 1 && rand.nextBoolean()) {
+//				list.add(itemstack2);
+//			} else {
+//				stacks.add(itemstack2);
+//			}
+//
+//			if (itemstack1.getCount() > 1 && rand.nextBoolean()) {
+//				list.add(itemstack1);
+//			} else {
+//				stacks.add(itemstack1);
+//			}
+//		}
+//
+//		stacks.addAll(list);
+//		Collections.shuffle(stacks);
 	}
 }
